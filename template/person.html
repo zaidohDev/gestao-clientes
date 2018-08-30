@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<nav>
+    <a href="{% url 'logout' %}">Sair</a>
+</nav>
+<ul>
+{% for person in persons%}
+    <li>Nome: {{person.first_name}} <a href="{% url 'person_update' person.id %}">Edit</a>
+        <a href="{% url 'person_delete' person.id %}">Delete</a></li>
+
+
+{% endfor%}
+
+</ul>
+
+<a class="button" href="{% url 'person_new' %}">Novo</a>
+</body>
+</html>
